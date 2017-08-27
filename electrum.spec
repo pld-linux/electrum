@@ -25,6 +25,7 @@ BuildRequires:	python-pbkdf2
 BuildRequires:	python-pyaes
 BuildRequires:	python-qrcode
 BuildRequires:	python-requests
+BuildRequires:	python-protobuf
 BuildRequires:	python-six
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
