@@ -1,4 +1,3 @@
-
 # Conditional build:
 %bcond_with	doc	# don't build doc
 %bcond_without	tests	# do not perform "make test"
@@ -13,11 +12,9 @@ Version:	2.9.3
 Release:	1
 License:	MIT
 Group:		Libraries/Python
-# Source0:	https://files.pythonhosted.org/packages/source/M/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 Source0:	https://download.electrum.org/%{version}/Electrum-%{version}.tar.gz
 # Source0-md5:	17257d2ee01454283a3324392b85eef5
 URL:		https://electrum.org
-#URL:		https://pypi.python.org/pypi/MODULE
 BuildRequires:	python-PySocks >= 1.6.6
 BuildRequires:	python-ecdsa > 0.9
 BuildRequires:	python-jsonrpclib
@@ -96,12 +93,6 @@ rm -rf $RPM_BUILD_ROOT
 export XDG_DATA_HOME=%{_datadir}
 %if %{with python2}
 %py_install
-# when files are installed in other way that standard 'setup.py
-# they need to be (re-)compiled
-# change %{py_sitedir} to %{py_sitescriptdir} for 'noarch' packages!
-#%%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
-#%%py_comp $RPM_BUILD_ROOT%{py_sitedir}
-
 %py_postclean
 %endif
 
@@ -129,7 +120,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -n python3-%{pypi_name}
 %defattr(644,root,root,755)
 %doc AUTHORS README.rst RELEASE-NOTES
-#%%{py3_sitescriptdir}/%{module}
 #%%{py3_sitescriptdir}/%{egg_name}-%{version}-py*.egg-info
 %endif
 
